@@ -2,7 +2,7 @@
   <div class="layout">
     <Topnav/>
     <div class="content">
-      <aside>
+      <aside v-if="menuVisible">
         <div>
           <h2>文档</h2>
           <ol>
@@ -35,18 +35,23 @@
         </div>
       </aside>
       <main>
-        <router-view />
+        <router-view/>
       </main>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Topnav from '../components/Topnav.vue'
+import Topnav from '../components/Topnav.vue';
+import {inject, Ref} from 'vue';
 
 export default {
-  components:{Topnav}
-}
+  components: {Topnav},
+  setup(){
+    const menuVisible=inject<Ref<boolean>>('xxx')
+    return{menuVisible}
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -55,64 +60,73 @@ $padding-spacing: 200px;
   color: #c66844;
   background: #9fcfc4;
 }
+
 .layout {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  >.nav {
+
+  > .nav {
     flex-shrink: 0;
   }
-  >.content {
+
+  > .content {
     flex-grow: 1;
     padding: 0 40px 0 340px;
     display: flex;
-    >aside {
+
+    > aside {
       flex-shrink: 0;
       background: rgba($color: #000000, $alpha: .2);
       min-width: 300px;
       position: fixed;
-      top: 0;
+      top: 56px;
       left: 0;
       padding: 85px 0 16px;
       height: 100%;
       z-index: 5;
-      >div {
+
+      > div {
         display: flex;
         flex-direction: column;
         width: 100%;
-        >h2 {
+
+        > h2 {
           margin-bottom: 4px;
           padding-left: 16px;
         }
-        >ol {
-          >li {
+
+        > ol {
+          > li {
             a {
               display: block;
               padding: 10px 32px;
-              color: lighten(rgb(0,0,0), 14%);
+              color: lighten(rgb(0, 0, 0), 14%);
             }
           }
         }
       }
     }
-    >main {
+
+    > main {
       flex-grow: 1;
       padding: 16px;
       background: rgba($color: #000000, $alpha: .1);
       border-radius: 6px;
       overflow: auto;
     }
+
     @media (max-width: 896px) {
       padding: 44px 0 0 0;
-      >aside {
+      > aside {
         background: #f9f9f9;
       }
-      >main {
-        background: rgba(0,0,0,.1);
+      > main {
+        background: rgba(0, 0, 0, .1);
       }
     }
     @media (max-width: 500px) {
-      >aside {
+      > aside {
         min-width: 50%;
       }
     }
