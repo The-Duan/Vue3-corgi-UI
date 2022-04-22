@@ -21,8 +21,42 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.banner{
-  text-align: center;
+$bg-pink: #f9bfaf;
+$font-color: #bc654c;
+$border-radius: 8px;
+.homeWrap {
+  overflow-y: auto;
+}
+.features {
+  margin: 32px auto 100px;
+  padding: 0 30px;
+  >ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    >li {
+      margin: 16px 0;
+      display: flex;
+      width: 300px;
+      padding: 0 40px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      >svg {
+        width: 64px;
+        height: 64px;
+      }
+      >h3 {
+        font-size: 1.5em;
+      }
+      >p {
+        text-align: center;
+        font-size: 14px;
+      }
+    }
+  }
+}
+.banner {
   padding: 50px 0;
   display: flex;
   justify-content: center;
@@ -31,14 +65,21 @@ export default {
   >h2 {
     margin: 20px 0;
   }
-  >.actions{
-    >a{
+  @media (max-width: 896px) {
+    padding-top: 50px + (2.2 * 16px);
+  }
+  >.actions {
+    padding: 8px 0;
+    a {
       margin: 0 8px;
-      background: rgb(249,191,175);
+      background: $bg-pink;
       display: inline-block;
-      color: rgb(206,109,70);
+      color: $font-color;
       padding: 8px 24px;
-      border-radius: 8px;
+      border-radius: $border-radius;
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 }
