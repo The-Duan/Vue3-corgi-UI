@@ -1,17 +1,15 @@
 <template>
-<div>
-  switch文档
-</div>
+  <div>
+    <Switch/>
+  </div>
 </template>
 
 <script lang="ts">
-// import Vue from 'vue';
-// import {Component} from 'vue-property-decorator';
-//
-// @Component
-// export default class App extends Vue {
-//
-// }
+import Switch from '../lib/Switch.vue';
+
+export default {
+  components: {Switch}
+};
 </script>
 
 <style lang="scss" scoped>
