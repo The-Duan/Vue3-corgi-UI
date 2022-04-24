@@ -1,23 +1,25 @@
 <template>
   <template v-if="visible">
-    <div class="gulu-dialog-overlay"
-         @click="OnClickOverlay"
-    ></div>
-    <div class="gulu-dialog-wrapper">
-      <div class="gulu-dialog">
-        <header>标题
-          <span @click="close" class="gulu-dialog-close"></span>
-        </header>
-        <main>
-          <p>薯片！</p>
-          <p>好吃！</p>
-        </main>
-        <footer>
-          <Button level="main" @click="ok">OK</Button>
-          <Button @click="cancel">Cancel</Button>
-        </footer>
+    <Teleport to="body">
+      <div class="gulu-dialog-overlay"
+           @click="OnClickOverlay"
+      ></div>
+      <div class="gulu-dialog-wrapper">
+        <div class="gulu-dialog">
+          <header>
+            <slot name="title"/>
+            <span @click="close" class="gulu-dialog-close"></span>
+          </header>
+          <main>
+            <slot name="content"/>
+          </main>
+          <footer>
+            <Button level="main" @click="ok">OK</Button>
+            <Button @click="cancel">Cancel</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </template>
 </template>
 
@@ -26,6 +28,10 @@ import Button from './Button.vue';
 
 export default {
   props: {
+    // title: {
+    //   type: String,
+    //   default: '提示'
+    // },
     visible: {
       type: Boolean,
       default: false
@@ -59,7 +65,8 @@ export default {
       }
     };
     const cancel = () => {
-      context.emit('cancel');
+      props.cancel?.();
+      close();
     };
     return {close, OnClickOverlay, ok, cancel};
   }
