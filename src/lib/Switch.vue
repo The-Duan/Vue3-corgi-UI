@@ -1,5 +1,7 @@
 <template>
-  <button class="crisps-switch" @click="toggle" :class="{checked:value}">
+  <button class="crisps-switch"
+          @click="toggle"
+          :class="{'gulu-checked':value}">
     <span></span>
   </button>
 </template>
@@ -19,7 +21,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
 .crisps-switch {
@@ -40,7 +42,7 @@ $h2: $h - 4px;
     border-radius: $h2 / 2;
     transition: left 250ms;
   }
-  &.checked {
+  &.gulu-checked {
     background: blue;
     > span {
       left: calc(100% - #{$h2} - 2px);
@@ -54,7 +56,7 @@ $h2: $h - 4px;
       width: $h2+4px;
     }
   }
-  .crisps-switch.checked:active {
+  .crisps-switch.gulu-checked:active {
     > span {
       width: $h2+4px;
       margin-left: -4px;

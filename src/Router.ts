@@ -14,16 +14,19 @@ const history = createWebHashHistory();
 export const router = createRouter({
     history: history,
     routes: [
+        //首页路由
         {path: '/', component: Home},
+        //文档页路由
         {
             path: '/doc', component: Doc,
             children: [
+                //默认页面
                 {path:'',component:DocDemo},
-
+                //文档页面路由
                 {path:'introduce',component:introduce},
                 {path:'install',component:install},
                 {path:'getStarted',component:getStarted},
-
+                //组件列表路由
                 {path: 'switch', component: SwitchDemo},
                 {path: 'button', component: ButtonDemo},
                 {path: 'dialog', component: DialogDemo},

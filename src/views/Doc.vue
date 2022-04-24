@@ -118,7 +118,7 @@ $padding-spacing: 200px;
       }
     }
     @media (max-width: 500px) {
-      padding: 44px 0 0 0;
+      padding: 0;
       >aside {
         top: 50px;
         min-width: 50%;
