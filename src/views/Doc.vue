@@ -117,13 +117,6 @@ $padding-spacing: 200px;
         background: $bgColor;
       }
     }
-    @media (max-width: 500px) {
-      padding: 0;
-      >aside {
-        top: 50px;
-        min-width: 50%;
-      }
-    }
   }
 }
 </style>
