@@ -62,6 +62,25 @@ $h2: $h - 4px;
       margin-left: -4px;
     }
   }
+  &.crisps-switch-size-big {
+    width: $h * 3;
+  }
+  &.crisps-switch-size-small {
+    width: $h * 1.5;
+    height: $h * 0.8;
+    >span {
+      width: $h2 * 0.7;
+      height: $h2 * 0.7;
+    }
+    &.crisps-switch-checked>span {
+      left: calc(100% - #{$h2 * 0.7} - 2px);
+    }
+    &:active {
+      >span {
+        width: $h2;
+      }
+    }
+  }
 }
 
 </style>
