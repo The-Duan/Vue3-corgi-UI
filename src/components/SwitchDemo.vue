@@ -13,7 +13,7 @@
   <div class="demo">
     <h2>尺寸 </h2>
     <div class="demo-component">
-      <Switch1Demo/>
+      <Switch2Demo/>
     </div>
     <div class="demo-actions">
       <Button>查看代码</Button>
