@@ -212,9 +212,9 @@
   integrity sha512-YATxVxgRqNH6nHEIsvg6k2Boc1JHI9ZbH5iWFFv/MTkchz3b1ieGDa5T0a9RznNdI0KhVbdbWSN+KWWrQZRxTw==
 
 "@types/node@*":
-  version "17.0.25"
-  resolved "https://registry.npmmirror.com/@types/node/-/node-17.0.25.tgz#527051f3c2f77aa52e5dc74e45a3da5fb2301448"
-  integrity sha512-wANk6fBrUwdpY4isjWrKTufkrXdu1D2YHCot2fD/DfWxF5sMrVSA+KN7ydckvaTCh0HiqX9IVl0L5/ZoXg5M7w==
+  version "17.0.26"
+  resolved "https://registry.npmmirror.com/@types/node/-/node-17.0.26.tgz#1bbff9b23ee5a64f87b4f30c0c854b112ee2e635"
+  integrity sha512-z/FG/6DUO7pnze3AE3TBGIjGGKkvCcGcWINe1C7cADY8hKLJPDYpzsNE37uExQ4md5RFtTCvg+M8Mu1Enyeg2A==
 
 "@types/qs@*":
   version "6.9.7"
@@ -614,15 +614,6 @@ cli-spinners@^2.2.0:
   resolved "https://registry.npmmirror.com/cli-spinners/-/cli-spinners-2.6.1.tgz#adc954ebe281c37a6319bfa401e6dd2488ffb70d"
   integrity sha512-x/5fWmGMnbKQAaNwN+UZlV79qBLM9JFnJuJ03gIi5whrob0xV0ofNVHy9DhwGdsMJQc2OKv0oGmLzvaqvAVv+g==
 
-clipboard@^2.0.0:
-  version "2.0.10"
-  resolved "https://registry.npmmirror.com/clipboard/-/clipboard-2.0.10.tgz#e61f6f7139ac5044c58c0484dcac9fb2a918bfd6"
-  integrity sha512-cz3m2YVwFz95qSEbCDi2fzLN/epEN9zXBvfgAoGkvGOJZATMl9gtTDVOtBYkx2ODUJl2kvmud7n32sV2BpYR4g==
-  dependencies:
-    good-listener "^1.2.2"
-    select "^1.1.2"
-    tiny-emitter "^2.0.0"
-
 clone@^1.0.2:
   version "1.0.4"
   resolved "https://registry.npmmirror.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
@@ -763,11 +754,6 @@ defaults@^1.0.3:
   integrity sha512-s82itHOnYrN0Ib8r+z7laQz3sdE+4FP3d9Q7VLO7U+KRT+CR0GsWuyHxzdAY82I7cXv0G/twrqomTJLOssO5HA==
   dependencies:
     clone "^1.0.2"
-
-delegate@^3.1.2:
-  version "3.2.0"
-  resolved "https://registry.npmmirror.com/delegate/-/delegate-3.2.0.tgz#b66b71c3158522e8ab5744f720d8ca0c2af59166"
-  integrity sha512-IofjkYBZaZivn0V8nnsMJGBr4jVLxHDheKSW88PyxS5QC4Vo9ZbZVvhzlSxY87fVq3STR6r+4cGepyHkcWOQSw==
 
 delegates@^1.0.0:
   version "1.0.0"
@@ -1014,13 +1000,6 @@ globby@^11.0.0:
     ignore "^5.2.0"
     merge2 "^1.4.1"
     slash "^3.0.0"
-
-good-listener@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.npmmirror.com/good-listener/-/good-listener-1.2.2.tgz#d53b30cdf9313dffb7dc9a0d477096aa6d145c50"
-  integrity sha512-goW1b+d9q/HIwbVYZzZ6SsTr4IgE+WA44A0GmPIQstuOrgsFcT7VEJ48nmr9GaRtNu0XTKacFLGnBPAM6Afouw==
-  dependencies:
-    delegate "^3.1.2"
 
 graceful-fs@^4.1.6, graceful-fs@^4.2.0:
   version "4.2.10"
@@ -1802,12 +1781,10 @@ postcss@^8.1.10:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-prismjs@1.21.0:
-  version "1.21.0"
-  resolved "https://registry.npmmirror.com/prismjs/-/prismjs-1.21.0.tgz#36c086ec36b45319ec4218ee164c110f9fc015a3"
-  integrity sha512-uGdSIu1nk3kej2iZsLyDoJ7e9bnPzIgY0naW/HdknGj61zScaprVEVGHrPoXqI+M9sP0NDnTK2jpkvmldpuqDw==
-  optionalDependencies:
-    clipboard "^2.0.0"
+prismjs@^1.28.0:
+  version "1.28.0"
+  resolved "https://registry.npmmirror.com/prismjs/-/prismjs-1.28.0.tgz#0d8f561fa0f7cf6ebca901747828b149147044b6"
+  integrity sha512-8aaXdYvl1F7iC7Xm1spqSaY/OJBpYW3v+KJ+F17iYxvdc8sfjW194COK5wVhMZX45tGteiBQgdvD/nhxcRwylw==
 
 pump@^3.0.0:
   version "3.0.0"
@@ -1987,11 +1964,6 @@ sass@1.32.11:
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
 
-select@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.npmmirror.com/select/-/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
-  integrity sha512-OwpTSOfy6xSs1+pwcNrv0RBMOzI39Lp3qQKUTPVVPRjCdNa5JH/oPRiqsesIskK8TVgmRiHwO4KXlV2Li9dANA==
-
 selfsigned@^1.10.7:
   version "1.10.14"
   resolved "https://registry.npmmirror.com/selfsigned/-/selfsigned-1.10.14.tgz#ee51d84d9dcecc61e07e4aba34f229ab525c1574"
@@ -2156,11 +2128,6 @@ thenify-all@^1.0.0:
   integrity sha512-RVZSIV5IG10Hk3enotrhvz0T9em6cyHBLkH/YAZuKqd8hRkKhSfCGIcP2KUY0EPxndzANBmNllzWPwak+bheSw==
   dependencies:
     any-promise "^1.0.0"
-
-tiny-emitter@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.npmmirror.com/tiny-emitter/-/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
-  integrity sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
 
 to-fast-properties@^2.0.0:
   version "2.0.0"

@@ -1,3 +1,6 @@
+<demo>
+不可选用状态
+</demo>
 <template>
   <Switch v-model:value="bool" disabled />
 </template>
