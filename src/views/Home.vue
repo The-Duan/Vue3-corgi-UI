@@ -3,7 +3,7 @@
     <div class="topnavAndBanner">
       <Topnav />
       <div class="banner">
-        <h1>薯片UI</h1>
+        <h1>柯基UI</h1>
         <h2>一款 普普通通, 平平无奇 的 UI 框架</h2>
         <p class="actions">
           <a href="https://github.com/simple-ice/crisps-ui">GitHub</a>
@@ -15,7 +15,7 @@
       <ul>
         <li>
           <svg class="icon">
-            <use xlink:href="#font-vuejs-line"></use>
+            <use xlink:href="#font-dengpao"></use>
           </svg>
           <h3>基于 Vue 3</h3>
           <p>骄傲地使用了 Vue 3 Composition API</p>
@@ -29,7 +29,7 @@
         </li>
         <li>
           <svg class="icon">
-            <use xlink:href="#font-dengpao"></use>
+            <use xlink:href="#font-vuejs-line"></use>
           </svg>
           <h3>代码易读</h3>
           <p>每个组件的源代码都极其简洁</p>

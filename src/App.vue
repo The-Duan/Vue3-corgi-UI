@@ -1,30 +1,35 @@
 <template>
-  <div class="docBtn"></div>
-  <router-view/>
+  <div class="docBtn">
+
+  </div>
+  <router-view />
   <span class="leftBox"></span>
-  <span class="rigftBox">
-    <span></span>
-  </span>
+  <span class="rigftBox"> <span></span>
+</span>
 </template>
 
-<script lang="ts">
-import {provide, ref} from 'vue';
-import {router} from './Router';
-
+<script>
+import {
+  provide,
+  ref
+} from "vue";
+import {
+  router
+} from "./router";
 export default {
-  name: 'App',
   setup() {
     const width = document.documentElement.clientWidth;
-    const menuVisible = ref(width <= 896 ? false:true)
-    provide('menuVisible', menuVisible);
+    const asideVisible = ref(width > 896);
+    provide("asideVisible", asideVisible);
     router.afterEach(() => {
       if (width <= 896) {
-        menuVisible.value = false;
+        asideVisible.value = false;
       }
-    });
-  }
+    })
+  },
 };
 </script>
+
 <style lang="scss" scoped>
 .docBtn {
   position: fixed;
@@ -41,6 +46,7 @@ export default {
     display: none;
   }
 }
+
 .leftBox {
   z-index: -1;
   position: fixed;
@@ -51,14 +57,18 @@ export default {
   background-image: url('/src/assets/imgbox.png');
   background-repeat: no-repeat;
   background-size: 100%;
+
   @media (max-width: 896px) {
     width: 200px;
     height: 200px;
   }
+
   @media (max-width: 600px) {
     display: none;
   }
+
 }
+
 .rigftBox {
   position: fixed;
   right: 10vw;
@@ -70,13 +80,16 @@ export default {
   border: 2px solid #fcbdab;
   border-radius: 50%;
   z-index: -1;
+
   @media (max-width: 896px) {
     min-width: 100px;
     min-height: 100px;
   }
+
   @media (max-width: 600px) {
     display: none;
   }
+
   >span {
     position: absolute;
     top: 50%;
@@ -86,6 +99,7 @@ export default {
     background: #c05d38;
     border-radius: 50%;
     transform: translate(-50%, -50%);
+
     @media (max-width: 896px) {
       width: 50px;
       height: 50px;

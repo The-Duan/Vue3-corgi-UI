@@ -2,8 +2,8 @@
   <div>
     <div class="topnav" ref="topnav">
       <router-link ref="topLogo" to="/" class="logo">
-        <svg class="icon" aria-hidden="true">
-          <use xlink:href="#font-vue"></use>
+        <svg class="icon">
+          <use xlink:href="#font-xiaogoukeji"></use>
         </svg>
       </router-link>
       <ul class="menu">
@@ -11,8 +11,8 @@
           <router-link to="/doc">文档</router-link>
         </li>
       </ul>
-      <svg  @click="toggleMenu" class="toggleAside">
-        <use xlink:href="#font-gengduo" style="border: 1px solid red"/>
+      <svg v-if="toggleMenuVisible" @click="toggleMenu" class="toggleAside icon">
+        <use xlink:href="#font-gengduo" />
       </svg>
     </div>
   </div>
@@ -25,6 +25,7 @@ import {
   onMounted,
   onUnmounted,
   ref,
+  watchEffect
 } from "vue";
 export default {
   props: {
@@ -34,10 +35,10 @@ export default {
     },
   },
   setup() {
-    const menuVisible = inject < Ref < boolean >> ("menuVisible");
+    const asideVisible = inject < Ref < boolean >> ("asideVisible");
     const topnav = ref < HTMLDivElement > (null);
     const toggleMenu = () => {
-      menuVisible.value = !menuVisible.value;
+      asideVisible.value = !asideVisible.value;
     };
     const handleScroll = () => {
 
@@ -107,7 +108,8 @@ export default {
 
   @media (max-width: 896px) {
     position: fixed;
-    padding: 5px 0 0;
+    padding: 0;
+    padding-top: 5px;
     background-color: #edeceb;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
 

@@ -1,21 +1,19 @@
 <template>
   <template v-if="visible">
     <Teleport to="body">
-      <div class="gulu-dialog-overlay"
-           @click="OnClickOverlay"
-      ></div>
-      <div class="gulu-dialog-wrapper">
-        <div class="gulu-dialog">
+      <div class="crisps-dialog-overlay" @click="onClickMask"></div>
+      <div class="crisps-dialog-wrapper">
+        <div class="crisps-dialog">
           <header>
-            <slot name="title"/>
-            <span @click="close" class="gulu-dialog-close"></span>
+            <slot name="title" />
+            <span @click="close" class="crisps-dialog-close"></span>
           </header>
           <main>
-            <slot name="content"/>
+            <slot name="content" />
           </main>
           <footer>
-            <Button level="main" @click="ok">OK</Button>
             <Button @click="cancel">Cancel</Button>
+            <Button @click="ok" level="main">OK</Button>
           </footer>
         </div>
       </div>
@@ -24,38 +22,36 @@
 </template>
 
 <script lang="ts">
-import Button from './Button.vue';
-
+import Button from "./Button.vue";
+import {
+  ref
+} from "vue";
 export default {
   props: {
-    // title: {
-    //   type: String,
-    //   default: '提示'
-    // },
     visible: {
       type: Boolean,
-      default: false
+      default: false,
     },
-    closeOnClickOverlay: {
+    maskClosable: {
       type: Boolean,
-      default: true
+      default: true,
     },
     ok: {
-      type: Function
+      type: Function,
     },
     cancel: {
-      type: Function
-    }
+      type: Function,
+    },
   },
   components: {
-    Button
+    Button,
   },
   setup(props, context) {
     const close = () => {
-      context.emit('update:visible', false);
+      context.emit("update:visible", false);
     };
-    const OnClickOverlay = () => {
-      if (props.closeOnClickOverlay) {
+    const onClickMask = () => {
+      if (props.maskClosable) {
         close();
       }
     };
@@ -68,15 +64,21 @@ export default {
       props.cancel?.();
       close();
     };
-    return {close, OnClickOverlay, ok, cancel};
-  }
+    return {
+      close,
+      onClickMask,
+      ok,
+      cancel,
+    };
+  },
 };
 </script>
 
 <style lang="scss">
 $radius: 4px;
 $border-color: #d9d9d9;
-.gulu-dialog {
+
+.crisps-dialog {
   background: white;
   border-radius: $radius;
   box-shadow: 0 0 3px fade_out(black, 0.5);
@@ -101,7 +103,7 @@ $border-color: #d9d9d9;
     z-index: 11;
   }
 
-  > header {
+  >header {
     padding: 12px 16px;
     border-bottom: 1px solid $border-color;
     display: flex;
@@ -110,11 +112,11 @@ $border-color: #d9d9d9;
     font-size: 20px;
   }
 
-  > main {
+  >main {
     padding: 12px 16px;
   }
 
-  > footer {
+  >footer {
     border-top: 1px solid $border-color;
     padding: 12px 16px;
     text-align: right;
@@ -129,7 +131,7 @@ $border-color: #d9d9d9;
 
     &::before,
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       height: 1px;
       background: black;
