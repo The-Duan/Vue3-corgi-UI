@@ -24,9 +24,13 @@ import {
   computed,
   ref,
   onMounted,
-  watchEffect
-} from "vue";
+  watchEffect, SetupContext
+} from 'vue';
 import Tab from "./Tab.vue";
+
+declare const props: {selected: string}
+declare const context: SetupContext
+
 export default {
   props: {
     value: {
@@ -83,7 +87,8 @@ export default {
       }
     };
     const current = computed(() => {
-      return defaults.find((tab) => tab.props.title === props.value);
+      // return defaults.find((tab) => tab.props.title === props.value);
+      return defaults.find(tag => tag.props.title === props.value)
     });
 
     return {
