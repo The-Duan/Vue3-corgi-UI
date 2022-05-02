@@ -14,7 +14,7 @@
       <div class="crisps-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="crisps-tabs-content">
-      <component class="crisps-tabs-content-item" :is="current" :key="current.props.title" />
+      <component class="crisps-tabs-content-item" :is="current" :key="current.props.value" />
     </div>
   </div>
 </template>
@@ -59,7 +59,7 @@ export default {
     const defaults = context.slots.default();
     defaults.forEach((tab) => {
       if (tab.type !== Tab) {
-        throw new Error("tabsExample 子标签必须为 Tab");
+        throw new Error("Tabs 子标签必须为 Tab");
       }
     });
     const titles = defaults.map((tab) => {
