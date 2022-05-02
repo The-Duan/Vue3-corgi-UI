@@ -14,7 +14,7 @@
       <div class="crisps-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="crisps-tabs-content">
-      <component class="crisps-tabs-content-item" :is="current" :key="current.props.value" />
+      <component class="crisps-tabs-content-item" :is="current" :key="current.props.title" />
     </div>
   </div>
 </template>
