@@ -9,8 +9,11 @@ import TabsDemo from './components/demo/TabsDemo.vue'
 
 import Markdown from './components/Markdown.vue';
 
+// @ts-ignore
 import introduce from './markdown/introduce.md';
+// @ts-ignore
 import install from './markdown/install.md';
+// @ts-ignore
 import getStarted from './markdown/get-started.md';
 const history = createWebHashHistory()
 const md = (content: string, key: string) => {

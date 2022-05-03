@@ -14,22 +14,17 @@
       <div class="crisps-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="crisps-tabs-content">
-      <component class="crisps-tabs-content-item" :is="current" :key="current.props.title" />
+      <component class="crisps-tabs-content-item" :is="current" :key="current.props.title" v-if="current"/>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import {
-  computed,
-  ref,
-  onMounted,
-  watchEffect, SetupContext
-} from 'vue';
-import Tab from "./Tab.vue";
+import {computed, onMounted, ref, SetupContext, watchEffect} from 'vue';
+import Tab from './Tab.vue';
 
-declare const props: {selected: string}
-declare const context: SetupContext
+declare const props: { selected: string };
+declare const context: SetupContext;
 
 export default {
   props: {
@@ -38,15 +33,16 @@ export default {
     },
   },
   setup(props, context) {
-    const selectedItem = ref < HTMLDivElement > (null);
-    const indicator = ref < HTMLDivElement > (null);
-    const container = ref < HTMLDivElement > (null);
+    const selectedItem = ref<HTMLDivElement>(null);
+    const indicator = ref<HTMLDivElement>(null);
+    const container = ref<HTMLDivElement>(null);
     onMounted(() => {
       watchEffect(() => {
+        if (!selectedItem.value || !container.value) return;
         const {
           width
         } = selectedItem.value.getBoundingClientRect();
-        indicator.value.style.width = width + "px";
+        indicator.value.style.width = width + 'px';
         const {
           left: containerLeft
         } = container.value.getBoundingClientRect();
@@ -54,7 +50,7 @@ export default {
           left: resultLeft
         } = selectedItem.value.getBoundingClientRect();
         const left = resultLeft - containerLeft;
-        indicator.value.style.left = left + "px";
+        indicator.value.style.left = left + 'px';
       }, {
         flush: 'post'
       });
@@ -63,11 +59,11 @@ export default {
     const defaults = context.slots.default();
     defaults.forEach((tab) => {
       if (tab.type !== Tab) {
-        throw new Error("Tabs 子标签必须为 Tab");
+        throw new Error('Tabs 子标签必须为 Tab');
       }
     });
     const titles = defaults.map((tab) => {
-      if (tab.props.disabled || tab.props.disabled === "") {
+      if (tab.props.disabled || tab.props.disabled === '') {
         return {
           title: tab.props.title,
           disabled: true,
@@ -80,15 +76,15 @@ export default {
       }
     });
     const select = (t: {
-      title: string;disabled: boolean
+      title: string; disabled: boolean
     }) => {
       if (!t.disabled) {
-        context.emit("update:value", t.title);
+        context.emit('update:value', t.title);
       }
     };
     const current = computed(() => {
       // return defaults.find((tab) => tab.props.title === props.value);
-      return defaults.find(tag => tag.props.title === props.value)
+      return defaults.find(tag => tag.props.title === props.value);
     });
 
     return {

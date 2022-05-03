@@ -1,31 +1,29 @@
-<demo>
-基本
-</demo>
+<demo>基本</demo>
 <template>
-<div class="Tabs-demo-1">
-  <Tabs v-model:selected="x">
-    <Tab title="导航1">内容1</Tab>
-    <Tab title="导航2">内容2</Tab>
-  </Tabs>
-</div>
+  <div>
+    <Tabs v-model:value="name">
+      <Tab title="导航1">内容1</Tab>
+      <Tab title="导航2">内容2</Tab>
+      <Tab title="导航3">内容3</Tab>
+    </Tabs>
+  </div>
 </template>
 
 <script lang="ts">
-import {ref} from 'vue';
-import Tabs from '../../lib/Tabs.vue';
-import Tab from '../../lib/Tab.vue';
-
+import {
+  ref
+} from 'vue';
+import {Tabs, Tab} from "../../lib/index";
 export default {
-  components: { Tab, Tabs},
+  components: {
+    Tab,
+    Tabs
+  },
   setup() {
-    const x = ref('导航1')
+    const name = ref("导航1");
     return {
-      x
+      name
     }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

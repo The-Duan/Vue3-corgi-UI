@@ -10,9 +10,7 @@
 </template>
 
 <script lang="ts">
-import {
-  ref
-} from 'vue';
+import {ref} from 'vue';
 import {Tabs, Tab} from "../../lib/index";
 export default {
   components: {
