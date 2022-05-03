@@ -4,7 +4,7 @@ import {baseParse} from '@vue/compiler-core';
 
 export default {
     plugins: [md()],
-    base: "/crisps-ui-website/",
+    base: "/corgi-ui/",
     assetsDir: "assets",
     vueCustomBlockTransforms: {
         demo: (options) => {
